@@ -1,1 +1,2 @@
 # Kubernetes-Learning
+This repository is a structured resource for exploring and mastering Kubernetes. It provides practical examples, hands-on manifests, and clear explanations of essential concepts such as Pods, Deployments, Services, ConfigMaps, Secrets, and resource management. Whether you’re just starting your Kubernetes journey or looking to deepen your understanding of advanced topics, this repository is designed to support both learning and experimentation in a real-world context.
