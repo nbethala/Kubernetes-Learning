@@ -60,9 +60,37 @@ kubectl apply is idempotent, i.e., we can apply the same configuration multiple 
     flannel - Networking CNI 
     weave-net
     monitoring agents etc
-    
+
+    Cron-Job : To automate a build based on time "* * * * * " - understand the concept and the algorithm.
+     Jobs : Runs once a day and task is completed - usage : automation pipeline 
+     
 ## Static pods, manual scheduling, labels, and selectors in Kubernetes
+     - static pods : control plane components NOT managed by scheduler. The scheduler is not responsible for scheduling these types of pods.
+     
+### Static Pods :  are special types of pods managed directly by the kubelet on each node rather than through the Kubernetes API server.
+
+Key Characteristics of Static Pods:
+Not Managed by the Scheduler: Unlike deployments or replicasets, the Kubernetes scheduler does not manage static pods.
+Defined on the Node: Configuration files for static pods are placed directly on the node's file system, and the kubelet watches these files.
+Some examples of static pods are: ApiServer, Kube-scheduler, controller-manager, ETCD etc
+
+### Managing Static Pods:
+SSH into the Node: You will gain access to the node where the static pod is defined.(Mostly the control plane node)
+Modify the YAML File: Edit or create the YAML configuration file for the static pod.
+Remove the Scheduler YAML: To stop the pod, you must remove or modify the corresponding file directly on the node.
+Default location": is usually /etc/kubernetes/manifests/; you can place the pod YAML in the directory, and Kubelet will pick it for scheduling.
+
+- static pods are stored in one single directory and kubelet just mnonitor that directory.
+- /etc/kubernetes/manifests# - ls -ltr This is where all the manifests of the static pods are stored.
+-  Manual scheduling in Kubernetes involves assigning a pod to a specific node rather than letting the scheduler decide.
+
+### Labels and Selectors: 
+Selectors filter Kubernetes objects based on their labels. This is incredibly useful for querying and managing a subset of objects that meet specific criteria.
+Labels: Organize resources within the same or across namespaces.
+Namespaces: Provide a way to isolate resources from each other within a cluster.
    
+## Taints and Tolerations - day 14( Tech tutorials - p.sachdeva)
+
   
 
        
